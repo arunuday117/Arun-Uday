@@ -47,11 +47,6 @@
                 $se=10;
                 $rate=($unit*1.50)+$se; 
             } 
-            echo"Meter Number : ".$mnum."<br>";
-            echo"Surcharge : ".$se."<br>";
-            echo"Tariff category : ".$tariff."<br>";
-            echo"Unit : ".$unit."<br>";
-            echo"Total charge for (".$unit.") : ".$rate; 
         }
         if($tariff=='residential'){
             if($unit>0 && $unit<=50){
@@ -74,11 +69,6 @@
                 $se=10;
                 $rate=($unit*2.0)+$se; 
             } 
-            echo"Meter Number : ".$mnum."<br>";
-            echo"Surcharge : ".$se."<br>";
-            echo"Tariff category : ".$tariff."<br>";
-            echo"Unit : ".$unit."<br>";
-            echo"Total charge for (".$unit.") : ".$rate; 
         }
         if($tariff=='commercial'){
             if($unit>0 && $unit<=50){
@@ -100,12 +90,12 @@
             else if($unit>400){
                 $se=10;
                 $rate=($unit*2.25)+$se; 
-            } 
-            echo"Meter Number : ".$mnum."<br>";
-            echo"Surcharge : ".$se."<br>";
-            echo"Tariff category : ".$tariff."<br>";
-            echo"Unit : ".$unit."<br>";
-            echo"Total charge for (".$unit.") : ".$rate; 
+            }  
         }
+        echo"Meter Number : ".$mnum."<br>";
+        echo"Surcharge : ".$se."<br>";
+        echo"Tariff category : ".$tariff."<br>";
+        echo"Unit : ".$unit."<br>";
+        echo"Total charge for (".$unit.") : ".$rate;
     }
 ?>
