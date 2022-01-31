@@ -10,6 +10,7 @@
             $title=$_POST['title'];
             $auth=$_POST['auth'];
             $edition=$_POST['edition'];
+            $publisher=$_POST['publisher'];
             $flag=0;
             if(empty($no)){
                 $msg['no']="*Accession number is required";
@@ -27,13 +28,17 @@
                 $msg['edition']="*Edition is required";
                 $flag=1;
             }
+            if(empty($publisher)){
+                $msg['$publisher']="*Publisher is required";
+                $flag=1;
+            }
             if($flag==0){
                 if(!preg_match('/^[0-9]*$/',$no)){
                     $msg['no']="*Invalid Accession number";
                     $flag=1;
                 }
                 if($flag==0){
-                    $query=mysqli_query($con,"INSERT INTO book_table VALUES('$no','$title','$auth','$edition')");
+                    $query=mysqli_query($con,"INSERT INTO book_table VALUES('$no','$title','$auth','$edition','$publisher')");
                     if($query){
                         $msg['err']="Data Inserted";
                     }
@@ -102,6 +107,10 @@
             <label>Edition</label> <input type="text" name="edition" value="<?php if(isset($edition))echo$edition;?>">
             <?php if(isset($msg['edition'])){?><span><?php echo$msg['edition'];?></span><?php }?>
         </div>
+        <div>
+            <label>Publisher</label> <input type="text" name="publisher" value="<?php if(isset($publisher))echo$publisher;?>">
+            <?php if(isset($msg['publisher'])){?><span><?php echo$msg['publisher'];?></span><?php }?>
+        </div>
         <input type="submit" value="Submit" name="submit">
         <div>
             <?php if(isset($msg['con'])){?><span><?php echo$msg['con'];?></span><?php }?>
@@ -126,6 +135,7 @@
             <th>Title</th>
             <th>Author</th>
             <th>Edition</th>
+            <th>Publisher</th>
         </tr>
         <?php
             $query=mysqli_query($con,"SELECT * FROM book_table WHERE title LIKE '%$_POST[se]%'");
@@ -136,6 +146,7 @@
                 <td><?php echo$row['title']; ?></td>
                 <td><?php echo$row['author']; ?></td>
                 <td><?php echo$row['edition']; ?></td>
+                <td><?php echo$row['publisher']; ?></td>
             </tr>
         <?php
             }
