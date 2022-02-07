@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam</title>
+</head>
+<body>
+    <div class="container">
+        <h3>Online Examination</h3>
+        <p>Each question carries one mark</p>
+        <form action="" name="exam" >
+            <p>Question 1 : Multiply 2*3</p>
+            <p><input type="radio" name="question1" id="1" value="6">A.6</p>
+            <p><input type="radio" name="question1" id="2" value="5">B.5</p>
+            <p><input type="radio" name="question1" id="3" value="2">C.2</p>
+            <p><input type="radio" name="question1" id="4" value="7">D.7</p>
+            <p>Question 2 : Compute sin 30 degrees</p>
+            <p><input type="radio" name="question2" id="5" value="0.1">A.0.1</p>
+            <p><input type="radio" name="question2" id="6" value="0.3">B.0.3</p>
+            <p><input type="radio" name="question2" id="7" value="0.5">C.0.5</p>
+            <p><input type="radio" name="question2" id="8" value="0.7">D.0.7</p>
+            <p>Question 3 : Tag in HTML to view a table</p>
+            <p><input type="radio" name="question3" id="9" value="body">A.body</p>
+            <p><input type="radio" name="question3" id="10" value="h1">B.h1</p>
+            <p><input type="radio" name="question3" id="11" value="img">C.img</p>
+            <p><input type="radio" name="question3" id="12" value="table">D.table</p>
+            <p>Question 4 : Tag in HTML to view an image</p>
+            <p><input type="radio" name="question4" id="13" value="body">A.body</p>
+            <p><input type="radio" name="question4" id="14" value="h1">B.h1</p>
+            <p><input type="radio" name="question4" id="15" value="img">C.img</p>
+            <p><input type="radio" name="question4" id="16" value="table">D.table</p>
+            <button type="submit" name="submit" id="submit">Submit</button>
+        </form>
+        <script>
+            submit.onclick=function (){
+                var score=0;
+                if(document.getElementById('1').checked){
+                    score++;
+                }
+                if(document.getElementById('7').checked){
+                    score++;
+                }
+                if(document.getElementById('12').checked){
+                    score++;
+                }
+                if(document.getElementById('15').checked){
+                    score++;
+                }
+                alert('Final Score : '+score);
+            }
+        </script>
+    </div>
+</body>
+</html>

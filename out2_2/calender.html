@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+</head>
+<body>
+    <div class="inputs">
+        <label class="enter">Enter the year</label>
+        <input type="tel" name="input" id="input">
+        <input type="hidden" name="hidden" id="hidden">
+        <input type="button" value="View" onclick="cal();" id="submit">
+    </div>
+    <div class="container">
+        <div class="calendar">
+            <div class="month">
+                <i class="fa fa-arrow-left ar-left" aria-hidden="true" id="prev"></i>
+                <div class="date">
+                    <h1 class="months" id="years"></h1>
+                    <h1 class="months" id="months"></h1>
+                    <p class="year" id="year"></p>
+                </div>
+                <i class="fa fa-arrow-right ar-right" aria-hidden="true" id="next"></i>
+            </div>
+            <div class="week-days">
+                <div class="day">SUN</div>
+                <div class="day">MON</div>
+                <div class="day">TUE</div>
+                <div class="day">WED</div>
+                <div class="day">THUR</div>
+                <div class="day">FRI</div>
+                <div class="day">SAT</div>
+            </div>
+            <div id="days"></div>
+            
+        </div>
+    </div>
+    <script>
+        function cal(){
+            var s = document.getElementById('input').value;
+            var d = new Date(s);
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            document.getElementById('years').innerHTML=d.getFullYear();
+            document.getElementById('months').innerHTML='<h3>'+months[d.getMonth()]+'</h3>';
+            document.getElementById('year').innerHTML=new Date().toDateString();
+            var final=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();
+            var firstDay=d.getDay();
+            document.getElementById('hidden').value=d;
+            var div='';
+
+            for(var i=firstDay;i>0;i--){
+                div+=`<div></div>`;
+            }
+            
+            for(var i=1;i<=final;i++){
+                if (i == new Date().getDate() &&d.getMonth() == new Date().getMonth() &&d.getFullYear()== new Date().getFullYear()){
+                    div += `<div class="today">${i}</div>`;
+                    } 
+                    else{
+                    div += `<div>${i}</div>`;
+                    }
+                days.innerHTML=div;
+            }
+        }
+        document.querySelector('.ar-left').addEventListener('click',()=>{
+            d=document.getElementById('hidden').value;
+            d= new Date(d);
+            d.setMonth(d.getMonth()-1);
+            ne(d);
+        });
+        document.querySelector('.ar-right').addEventListener('click',()=>{
+            d=document.getElementById('hidden').value;
+            d= new Date(d);
+            d.setMonth(d.getMonth()+1);
+            ne(d);
+        });
+        function ne(d){
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            document.getElementById('years').innerHTML=d.getFullYear();
+            document.getElementById('months').innerHTML='<h3>'+months[d.getMonth()]+'</h3>';
+            document.getElementById('year').innerHTML=new Date().toDateString();
+            var final=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();
+            var firstDay=d.getDay();
+            document.getElementById('hidden').value=d;
+            var div='';
+
+            for(var i=firstDay;i>0;i--){
+                div+=`<div></div>`;
+            }
+            
+            for(var i=1;i<=final;i++){
+                if (i == new Date().getDate() &&d.getMonth() == new Date().getMonth() &&d.getFullYear()== new Date().getFullYear()){
+                    div += `<div class="today">${i}</div>`;
+                    } 
+                    else{
+                    div += `<div>${i}</div>`;
+                    }
+                days.innerHTML=div;
+            }
+        }
+    </script>
+</body>
+</html>

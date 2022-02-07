@@ -1,0 +1,169 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outcome2 Pg1</title>
+    <style>
+        .nav{
+            list-style: none;
+            display: inline-block;
+            margin-left: 40px;
+            background-color: rgb(81, 81, 82);
+            padding: 20px;
+        }
+        a{
+            text-decoration: none;
+            color: #FFF;
+        }
+    </style>
+</head>
+<body>
+
+<!--calculator-->
+<div class="container" style="text-align: center;">
+    <div class="form">
+        <li class="nav"><a href="oc2_pg1.html">String Functions</a></li>
+        <li class="nav"><a href="oc2_pg1_math.html">Math Functions</a></li>
+        <h3>String Functions</h3>
+        <center>
+            <div class="string">
+                <table style="border: 1px solid black;">
+                    <tr>
+                        <td>Enter a string</td>
+                        <td></td>
+                        <td><input type="text" name="in1" id="in1"></td>
+                    </tr>
+                    <tr>
+                        <td>Search a string</td>
+                        <td></td>
+                        <td><input type="text" name="in2" id="in2"></td>
+                    </tr>
+                    <tr>
+                        <td>Slice a string</td>
+                        <td></td>
+                        <td><input type="number" name="in3" id="in3" placeholder="Start">
+                            <input type="number" name="in4" id="in4" placeholder="Stop"></td>
+                    </tr>
+                    <tr>
+                        <td>Replace a string</td>
+                        <td></td>
+                        <td><input type="text" name="in5" id="in5" placeholder="Enter the string to be replaced">
+                            <input type="text" name="in6" id="in6" placeholder="Enter the string"></td>
+                    </tr>
+                    <tr>
+                        <td>Enter a Uppercase string</td>
+                        <td></td>
+                        <td><input type="text" name="in7" id="in7" placeholder="Enter the string"></td>                       </td>
+                    </tr>
+                    <tr>
+                        <td>Enter a string concat</td>
+                        <td></td>
+                        <td><input type="text" name="in8" id="in8" placeholder="Enter the string"></td>                       </td>
+                    </tr>
+                    <tr>
+                        <td>Enter a string to pad</td>
+                        <td></td>
+                        <td><input type="text" name="in9" id="in9" placeholder="Enter the string"></td>                       </td>
+                    </tr>
+                    <tr>
+                        <td>Enter the position to find the character</td>
+                        <td></td>
+                        <td><input type="number" name="in10" id="in10" placeholder="Enter the position"></td>                       </td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" id="con" onclick="submit()">Submit</button></td>
+                    </tr>
+                </table><br>
+                <table width="43%" style="background-color: lightslategrey; color: #FFF;">
+                    <tr>
+                        <td>Length of the string : </td>
+                        <td><span id="out1"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Index of the string : </td>
+                        <td><span id="out2"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Slice of the string : </td>
+                        <td><span id="out3"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Substr of the string : </td>
+                        <td><span id="out4"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Substring of the string : </td>
+                        <td><span id="out5"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Replaced string : </td>
+                        <td><span id="out6"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Uppercase of string : </td>
+                        <td><span id="out7"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Lowercase string : </td>
+                        <td><span id="out8"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Concatenated string : </td>
+                        <td><span id="out9"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Padding at begining of string : </td>
+                        <td><span id="out10"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Padding at end of string : </td>
+                        <td><span id="out11"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Character at the position : </td>
+                        <td><span id="out12"></span></td>
+                    </tr>
+                </table>
+            </div>
+        </center>
+    </div>
+</div>
+
+<script>
+    function submit(){
+        var in1=document.getElementById("in1").value; 
+        var in2=document.getElementById("in2").value;
+        var in3=document.getElementById("in3").value;
+        var in4=document.getElementById("in4").value;
+        var in5=document.getElementById("in5").value;
+        var in6=document.getElementById("in6").value;
+        var in7=document.getElementById("in7").value;
+        var in8=document.getElementById("in8").value;
+        var in9=document.getElementById("in9").value;
+        var in10=document.getElementById("in10").value;
+        out1=in1.length;
+        document.getElementById("out1").innerHTML=out1; 
+        out2=in1.indexOf(in2);
+        document.getElementById("out2").innerHTML=out2;
+        out3=in1.slice(in3,in4);
+        document.getElementById("out3").innerHTML=out3;
+        out4=in1.substr(in3,in4);
+        document.getElementById("out4").innerHTML=out4;
+        out5=in1.substring(in3,in4);
+        document.getElementById("out5").innerHTML=out5;
+        out6=in1.replace(in5,in6);
+        document.getElementById("out6").innerHTML=out6;
+        document.getElementById("out7").innerHTML=in1.toUpperCase();
+        document.getElementById("out8").innerHTML=in7.toLowerCase();
+        document.getElementById("out9").innerHTML=in1.concat(" ",in8);
+        out7=in1.padStart(30,in9);
+        document.getElementById("out10").innerHTML=out7;
+        out8=in1.padEnd(30,in9);
+        document.getElementById("out11").innerHTML=out8;
+        out9=in1.charAt(in10);
+        document.getElementById("out12").innerHTML=out9;
+    }
+</script>
+</body>
+</html>

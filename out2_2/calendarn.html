@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+        border: 1px solid black;
+        padding: 3px;
+        text-align: center;
+        }
+
+        th {
+        font-weight: bold;
+        background-color: #E6E6E6;
+        }
+        .container{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="inputs">
+        <label class="enter">Enter the year</label>
+        <input type="tel" name="input" id="input">
+        <input type="hidden" name="hidden" id="hidden">
+        <input type="button" value="View" onclick="cal()" id="submit">
+    </div>
+    <div class="container">
+        <div class="calendar">
+            <div class="month">
+                <div class="date">
+                    <h3 class="months" id="years"></h3>
+                    <h3 class="months" id="months"></h3>
+                    <p class="year" id="year"></p>
+                </div>
+            </div>
+            <div id="days"></div>   
+            <a href="#" id="prev">Previous</a>
+            <a href="#" id="next">Next</a>       
+        </div>
+    </div>
+    <script>
+        function cal(){
+            document.querySelector('.container');
+            var s = document.getElementById('input').value;
+            var d = new Date(s);
+            var num=0;
+            var n=0,j=0;
+            var arr=[6,13,20,27,34];
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            document.getElementById('years').innerHTML=d.getFullYear();
+            document.getElementById('months').innerHTML='<h3>'+months[d.getMonth()]+'</h3>';
+            document.getElementById('year').innerHTML=new Date().toDateString();
+            var final=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();
+            var firstDay=d.getDay();
+            var lastDay=new Date(d.getFullYear(),d.getMonth()+1,0).getDay();
+            document.getElementById('hidden').value=d;
+            var td='<table border="1" width="50%"><tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THUR</th><th>FRI</th><th>SAT</th></tr><tr>';
+            for(var i=firstDay;i>0;i--){
+                td+=`<td></td>`;
+                num++;
+            }
+            for(var i=1;i<=final;i++){
+                if((num%6)==n && num==arr[j]){
+                    td += '<td>'+i+'</td>';
+                    td +='</tr><tr>';
+                    n++;
+                    j++;
+                } 
+                else{
+                    td += `<td>${i}</td>`;
+                }
+                num++;
+            }
+            for(var i=lastDay;i<6;i++){
+                td+=`<td></td>`;
+            }
+            td+=`</tr></table>`;
+            days.innerHTML=td;
+            document.querySelector('.container').style.display="block";
+        }
+        document.querySelector('#prev').addEventListener('click',()=>{
+            d=document.getElementById('hidden').value;
+            d= new Date(d);
+            d.setMonth(d.getMonth()-1);
+            ne(d);
+        });
+        document.querySelector('#next').addEventListener('click',()=>{
+            d=document.getElementById('hidden').value;
+            d= new Date(d);
+            d.setMonth(d.getMonth()+1);
+            ne(d);
+        });
+        function ne(d){
+            var num=0;
+            var n=0,j=0;
+            var arr=[6,13,20,27,34];
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            document.getElementById('years').innerHTML=d.getFullYear();
+            document.getElementById('months').innerHTML='<h3>'+months[d.getMonth()]+'</h3>';
+            document.getElementById('year').innerHTML=new Date().toDateString();
+            var final=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();
+            var firstDay=d.getDay();
+            var lastDay=new Date(d.getFullYear(),d.getMonth()+1,0).getDay();
+            document.getElementById('hidden').value=d;
+            var td='<table border="1" width="50%"><tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THUR</th><th>FRI</th><th>SAT</th></tr><tr>';
+            for(var i=firstDay;i>0;i--){
+                td+=`<td></td>`;
+                num++;
+            }
+            for(var i=1;i<=final;i++){
+                if((num%6)==n && num==arr[j]){
+                    td += '<td>'+i+'</td>';
+                    td +='</tr><tr>';
+                    n++;
+                    j++;
+                } 
+                else{
+                    td += `<td>${i}</td>`;
+                }
+                num++;
+            }
+            for(var i=lastDay;i<6;i++){
+                td+=`<td></td>`;
+            }
+            td+=`</tr></table>`;
+            days.innerHTML=td;
+        }
+    </script>
+</body>
+</html>

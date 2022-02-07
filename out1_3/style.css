@@ -1,0 +1,28 @@
+body{
+ background-color: peru;
+}
+
+a{
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+}
+
+.navbar{
+    margin:10px;
+    padding-top: 30px;
+}
+
+.nav{
+    padding-top: 30px;
+    display: block;
+}
+
+.nav:hover{
+    color: black;
+}
+
+.content{
+    margin-top: 50px;
+    color: white;
+}

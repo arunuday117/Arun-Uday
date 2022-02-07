@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" onmouseover="change()" onmouseout="norm()" id="hang" width="100px" height="100px">
+        <img src="back.jpg" width="500px"height="500px">
+        <h3>Hower to change the content</h3>
+    </div>
+    <script>
+        function change(){
+            var im=`<img src='bg.jpg' width="500px"height="500px">`;
+            var h=`<h3>Hower back to change the content</h3>`
+            hang.innerHTML=im+h;
+        }
+        function norm(){
+            var im=`<img src="back.jpg" width="500px"height="500px">`;
+            var h=`<h3>Hower to change the content</h3>`
+            hang.innerHTML=im+h;
+        }
+    </script>
+</body>
+</html>

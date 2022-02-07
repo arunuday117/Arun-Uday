@@ -1,0 +1,144 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <title>Calculator</title>
+    <style>
+        body{
+            background: url("back.jpg");
+            background-repeat: round;
+            font-family: 'Poppins', sans-serif;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            margin: 20px;
+            padding: 90px;
+            width: 100%;
+            background-color: rgb(178 202 214 / 61%);
+            border: 0px;
+            display: inline;
+            border-radius: 20px;
+        }
+        .form {
+            display: block;
+            padding: 30px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        h4 {
+            text-align: center;
+            font-size: 28px;
+            color: #f5f5f5;
+            font-weight: bold;
+        }
+        .input{
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        input[type="number"]{
+            width: 200px;
+            height: 30px;
+            border: 0px;
+            padding: 20px;
+            border-radius: 10px;
+            margin-right: 20px;
+            color: #FFF;
+            background-color: rgb(5 124 180 / 30%);
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+        input[type="number"]::placeholder{
+            color: #FFF;
+        }
+        button{
+            width: 450px;
+            height: 40px;
+            margin: 10px;
+            border: 0px;
+            border-radius: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 900;
+            color: #111f64b3;
+        }
+        button:hover{
+            background-color: #dbd2d2;
+        }
+        h3{
+            font-size: 28px;
+            color: #f5f5f5;
+            font-weight: bold;
+            margin-right: 100px;
+        }
+        .result{
+            text-align: center;
+            color: #3b4e64;
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+        p{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!--calculator-->
+<div class="container">
+    <div class="form">
+        <h4>Calculator</h4>
+        <div class="input">
+            <input type="number" id="num1" name="num1" placeholder="Number 1">
+            <input type="number" id="num2" name="num2" placeholder="Number 2">
+        </div>
+        <div class="button">
+            <button type="submit" onclick="add()" name="add">Add</button>
+            <button type="submit" onclick="sub()" name="subtract">Subtract</button>
+            <button type="submit" onclick="mult()" name="multiply">Multiply</button>
+            <button type="submit" onclick="div()" name="divide">Divide</button>
+        </div>
+        <div class="result">
+            <h3>Result</h3>
+            <p id="result"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function add(){
+        var num1=parseInt(document.getElementById("num1").value);
+        var num2=parseInt(document.getElementById("num2").value);
+        var sum=num1+num2;
+        document.getElementById("result").innerHTML=sum;  
+    }
+    function sub(){
+        var num1=parseInt(document.getElementById("num1").value);
+        var num2=parseInt(document.getElementById("num2").value);
+        var sum=num1-num2;
+        document.getElementById("result").innerHTML=sum;  
+    }
+    function div(){
+        var num1=parseInt(document.getElementById("num1").value);
+        var num2=parseInt(document.getElementById("num2").value);
+        var sum=num1/num2;
+        document.getElementById("result").innerHTML=sum;  
+    }
+    function mult(){
+        var num1=parseInt(document.getElementById("num1").value);
+        var num2=parseInt(document.getElementById("num2").value);
+        var sum=num1*num2;
+        document.getElementById("result").innerHTML=sum;  
+    }
+</script>
+</body>
+</html>

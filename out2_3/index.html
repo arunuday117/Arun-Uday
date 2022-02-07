@@ -1,0 +1,182 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        form .input{
+            padding: 10px;
+            position: relative;
+        }
+
+        .input_form{
+            background-color: rgb(129, 147, 252,0.3);
+            height: 30px;
+            width: 200px;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            padding: 13px;
+            margin-right: 10px;
+        }
+
+        .space{
+            width: 350px;
+        }
+
+        .input_form:hover{
+            background-color: rgb(123, 125, 235,0.2);
+        }
+
+        .input_form::placeholder{
+            color: #ffffffa3;
+            text-transform: uppercase;
+        }
+
+        .input label{
+            color: #FFF;
+            display: inline-block;
+            width:250px;
+        }
+
+        .input textarea{
+            height: 60px;
+            padding-top: 5px;
+        }
+
+        .input_form_file{
+            background-color: rgb(129, 147, 252,0.3);
+            height: 70px;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            padding: 13px;
+            margin-right: 10px;
+        }
+
+        input[type="file"]::-webkit-file-upload-button {
+            color: #deeeee;
+            background-color: rgb(129, 147, 252,0.3);
+            border: none;
+            width: 100px;
+            height: 40px;
+        }
+
+        select.input_form_select {
+            height: 40px;
+            border-radius: 5px;
+            border: 1px;
+            background-color: #4353ac;
+            color: #FFF;
+            padding-left: 10px;
+            text-transform: uppercase;
+        }
+
+        .input span{
+            color: #b2bbe0;
+            margin-right: 10px;
+        }
+
+        .input button{
+            background: #687cd1;
+            border-color: #465ec0;
+            color: #fff;
+            border-radius: 40px;
+            padding: 11px 16px;
+            border-width: 1px;
+            font-size: 14px;
+            font-weight: 900;
+            box-shadow: 0 10px 20px -6px rgb(0 0 0 / 12%);
+            position: relative;
+            left: 50%;
+            transform: translate(-125%, 50%);
+            margin: 19px 3px;
+            width: 150px;
+            text-transform: uppercase;
+        }
+
+        .input button:hover{
+            background-color: #b2bbe0;
+        }
+    </style>
+</head>
+<body>
+    <!--form-->
+    <div class="form" title="External CSS">
+        <h2 title="Inline CSS" style="color: #FFF;transform: translate(35%, 10%);padding-bottom: 30px;font-weight: 900;">REGISTRATION FORM</h2>
+        <form action="" onsubmit="validate()" class="register" method="post" title="Internal CSS" name="reg_form">
+            <div class="input">
+                <label>Your Full Name </label>
+                <input type="text" class="input_form" name="fname" placeholder="First Name"  autofocus="required" title="First name">
+                <input type="text" class="input_form" name="mname" placeholder="Middle Name"  title="Middle name">
+                <input type="text" class="input_form" name="lname" placeholder="Last Name"  title="Last name">
+                <span id="in_name"></span>
+            </div>
+            <div class="input">
+                <label>Gender </label>
+                <input type="radio" class="input_form_radio" name="gender" value="male" ><span>Male</span>
+                <input type="radio" class="input_form_radio" name="gender" value="female" ><span>Female</span>
+                <span id="in_gender"></span>
+            </div>
+            <div class="input">
+                <label>Email Id </label>
+                <input type="text" class="input_form space" name="email"  placeholder="Email Id">
+                <span id="in_id"></span>
+            </div>
+            <div class="input">
+                <label>Phone No </label>
+                <input type="tel" class="input_form space" name="number"  placeholder="Phone No">
+                <span id="in_ph"></span>
+            </div>
+            <div class="input">
+                <label>Address </label>
+                <textarea name="address"  style="overflow: hidden; resize: none;" class="input_form space" placeholder="Enter Your address"></textarea>
+                <span id="in_add"></span>
+            </div>
+            <div class="input">
+                <label>Password </label>
+                <input type="password" name="password"  class="input_form space" placeholder="Password">
+                <span id="in_pass"></span>
+            </div>
+            <div class="input">
+                <label>Confirm Password </label>
+                <input type="password" name="cpassword"  class="input_form space" placeholder="Retype Password">
+                <span id="in_conf"></span>
+            </div>
+            <div class="input">
+                <button type="reset" value="reset" style="background-color: #097ec4">Reset</button>
+                <button type="submit" value="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validate(){
+            var fname=document.reg_form.fname;
+            var dob=document.reg_form.dob;
+            var email=document.reg_form.email;
+            var age=document.reg_form.age;
+            var number=document.reg_form.number;
+            var address=document.reg_form.address;
+            var nationality=document.reg_form.nationality;
+            var language=document.reg_form.language;
+            var file=document.reg_form.file;
+            var password=document.reg_form.password;
+            if (!fname.value.match(/^[A-z ]+$/)) {    
+                alert('*Invalid Name');      
+            }
+            if (!email.value.match(/^\S+@\S+\.\S+$/)) {    
+                alert('*Invalid Email ID');     
+            }
+            if (number.value.length!=10) {    
+                alert('*Phone number is required');     
+            }
+            if (password.value.match(/^[A-Za-z]\w{7,14}$/)) {    
+                alert('*Password is required');     
+            }
+        }
+    </script>
+</body>
+</html>

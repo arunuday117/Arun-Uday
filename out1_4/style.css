@@ -1,0 +1,17 @@
+body{
+    background:  url("bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.form{
+    background-color: rgba(64, 92, 184, 0.4);
+    border-radius: 10px;
+    padding: 30px;
+    margin: 20px;
+}
